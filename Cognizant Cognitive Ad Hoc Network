@@ -1,0 +1,43 @@
+import random
+
+# Get the number of nodes from the user
+number_of_nodes = int(input("Enter number of nodes in your device: "))
+
+# Initialize all nodes as 'True' (indicating they are not free)
+nodes_list = ['True'] * number_of_nodes
+
+# Ask the user if any node is free
+ask1 = input("Is any node free[Y/N]: ")
+
+n = -1  # Initialize n to -1 for indexing nodes
+if ask1 == 'Y':
+    # If the user indicates that there are free nodes
+    position = input("Enter the position of node which is free: ")
+    free_channel = list(map(int, position.split()))  # Parse the free node positions
+    
+    # Mark the specified positions as 'False' (indicating they are busy)
+    for i in free_channel:
+        nodes_list[i] = 'False'
+    
+    # Check the status of each node
+    for i in nodes_list:
+        n += 1  # Increment n to get the current node index
+        if i == 'True':
+            print('Node', n, 'is busy')  # Print that the node is busy
+        else:
+            print('Node', n, 'is not busy')  # Print that the node is not busy
+    
+    # Randomly select a channel from the free channels for transmission
+    selected_channel = random.choice(free_channel)
+    print("Channel", selected_channel, "is selected for transmitting")  # Print the selected channel
+    print("Node is now transmitting on Channel", selected_channel)  # Indicate that the node is transmitting
+
+else:
+    # If no nodes are free
+    if n == -1:
+        m = 0  # Initialize m for indexing nodes
+        for i in range(number_of_nodes):
+            print('Node', m, 'is busy')  # Print that all nodes are busy
+            m += 1  # Increment m for the next node
+            
+        print("No channels available, node cannot transmit.")  # Indicate that no channels are available
