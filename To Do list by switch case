@@ -1,0 +1,30 @@
+def todo_list():
+    list = []
+    while True:
+        print("\n1. Add to do")
+        print("2. Show all to do")
+        print("3. Delete to do")
+        print("4. Exit")
+        choice = input("Enter your choice: ")
+        match choice:
+            case "add":
+                task = input("Enter the task for add in list : ")
+                list.append(task)
+                print("Task added successfully")
+            case "show":
+                if len(list) == 0:
+                    print("List is empty!!!!!!!!!!!!")
+                else:
+                    print("Your to do list is : ")
+                    for i in range(len(list)):
+                        print(f"{i+1}. {list[i]}")
+            case "delete":
+                if len(list) == 0:
+                    print("List is empty!!!!!!!!!!!!")
+                else:
+                    index = int(input("Enter the index of task to delete : "))
+                    list.pop(index-1)
+                    print("Task deleted successfully")
+            case "exit":
+                break;
+todo_list()
