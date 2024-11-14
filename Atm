@@ -1,0 +1,82 @@
+#1.language,2.Domestic,International,3.pin number,4.deposit,withdraw,check_balane,pin_change,fast_withdrawls,update,5.thankyou
+
+def atm_process():
+    language = input("Enter your language (English/Spanish): ")
+    if language == "English":
+        print("Welcome to our ATM!")
+        atm_typeEn()
+        atm_pin_numberEn()
+    elif language == "Hindi":
+
+        print("हमारे एटीएम में आपका स्वागत है!")
+        atm_typeHindi()
+        atm_pin_numberHindi
+def atm_typeEn():
+    type = input("Enter your type of Atm(domestic(1), international(2) : ")
+    if type == 1:
+        print("Welcome to our Domestic ATM!")
+    elif type == 2:
+        print("Welcome to our International ATM!")
+def atm_typeHindi():
+    type = input("अपना प्रकार का एटीएम दर्ज करें (घरेलू(1), अंतर्राष्ट्रीय(2) : ")
+    if type == 1:
+        print("हमारे घरेलू एटीएम में आपका स्वागत है!")
+    elif type == 2:
+        print("हमारे अंतरराष्ट्रीय एटीएम में आपका स्वागत है!")
+
+def atm_pin_numberEn():
+    pin_number = input("Enter your pin number: ")
+    if pin_number == "1234":
+        print("Welcome to your account!")
+        atm_operationsEn()
+    else:
+        print("Invalid pin number!")
+def atm_pin_numberHindi():
+    pin_number = input("अपना पिन नंबर दर्ज करें: ")
+    if pin_number == "1234":
+        print("आपके खाते में आपका स्वागत है!")
+        atm_operationsEn()
+    else:
+        print("अमान्य पिन नंबर!")
+def atm_operationsEn():
+    print("Select your operation(अपना ऑपरेशन चुनें):")
+    print("1. Deposit")
+    print("2. Withdraw(निकालना)")
+    print("3. Check Balance(बैलेंस चेक करें)")
+    print("4. Fast Withdrawals(तेजी से निकासी)")
+    print("5. Update pin(पिन अपडेट करें)")
+    choice = input("Enter your choice(अपनी पसंद दर्ज करें): ")
+    if choice == "1":
+        amount = float(input("Enter the amount to deposit(जमा करने के लिए राशि दर्ज करें): "))
+        print("Deposited successfully!(सफलतापूर्वक जमा किया गया!)")
+        print("Your new balance is(आपका नया बैलेंस है) ", amount)
+    elif choice == "2":
+        amount = float(input("Enter the amount to withdraw(निकालने के लिए राशि दर्ज करें) : "))
+        if amount <= balance:
+            print("Withdrawn successfully!(सफलतापूर्वक वापस ले लिया गया!)")
+            print("Your new balance is(आपका नया बैलेंस है) ", balance - amount)
+        else:
+            print("Insufficient balance!(अपर्याप्त राशि!)")
+    elif choice == "3":
+        print("Your current balance is(आपका वर्तमान बैलेंस है) ", balance)
+        print("Thank you!(धन्यवाद!)")
+    elif choice == "4":
+        amount = float(input("Enter the amount to fast withdraw(तेजी से निकालने के लिए राशि दर्ज करें) : "))
+        if amount <= balance:
+            print("Fast withdrawn successfully!(तेजी से सफलतापूर्वक वापस ले लिया!) :")
+            print("Your new balance is(आपका नया बैलेंस है) ", balance - amount)
+        else:
+            print("Insufficient balance!(अपर्याप्त राशि!)")
+            print("Thank you!(धन्यवाद!)")
+    elif choice == "5":
+        new_pin = input("Enter your new pin number(अपना नया पिन नंबर दर्ज करें): ")
+        print("Pin changed successfully!(पिन सफलतापूर्वक बदल गया!)")
+        print("Thank you!(धन्यवाद!)")
+        pin_number = new_pin
+        atm_pin_numberEn()
+        atm_operationsEn()
+        thankyou()
+def thankyou():
+        print("Thank you!(धन्यवाद!)")
+
+atm_process()
